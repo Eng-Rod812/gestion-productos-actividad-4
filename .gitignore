@@ -3,3 +3,7 @@ node_modules/
 .vercel/
 coverage/
 *.log
+
+.vercel
+.env*
+!.env.example
