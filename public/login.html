@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de productos | Iniciar sesión</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <main class="contenedor">
+    <!-- Vista de acceso (se muestra cuando NO hay sesión) -->
+    <section id="vista-acceso" class="tarjeta">
+      <h1>Gestión de productos</h1>
+      <p class="subtitulo">Inicia sesión para administrar tu catálogo</p>
+
+      <div class="pestanas" role="tablist">
+        <button id="tab-login" class="pestana activa" type="button" role="tab">Iniciar sesión</button>
+        <button id="tab-registro" class="pestana" type="button" role="tab">Registrarse</button>
+      </div>
+
+      <form id="form-login" novalidate>
+        <label for="login-email">Correo electrónico</label>
+        <input id="login-email" type="email" placeholder="correo@ejemplo.com" autocomplete="email" required />
+
+        <label for="login-password">Contraseña</label>
+        <input id="login-password" type="password" placeholder="Tu contraseña" autocomplete="current-password" required />
+
+        <button type="submit" class="boton">Entrar</button>
+      </form>
+
+      <form id="form-registro" class="oculto" novalidate>
+        <label for="reg-nombre">Nombre</label>
+        <input id="reg-nombre" type="text" placeholder="Tu nombre" autocomplete="name" required />
+
+        <label for="reg-email">Correo electrónico</label>
+        <input id="reg-email" type="email" placeholder="correo@ejemplo.com" autocomplete="email" required />
+
+        <label for="reg-password">Contraseña</label>
+        <input id="reg-password" type="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password" required />
+
+        <button type="submit" class="boton">Crear cuenta</button>
+      </form>
+
+      <p id="mensaje" class="mensaje" role="alert" aria-live="polite"></p>
+    </section>
+
+    <!-- Vista de sesión iniciada (se muestra cuando SÍ hay token) -->
+    <section id="vista-sesion" class="tarjeta ancha oculto">
+      <div class="encabezado-sesion">
+        <div>
+          <h1>Mis productos</h1>
+          <p class="subtitulo">Sesión iniciada como <strong id="nombre-usuario"></strong></p>
+        </div>
+        <button id="btn-logout" class="boton secundario" type="button">Cerrar sesión</button>
+      </div>
+
+      <div class="tabla-contenedor">
+        <table>
+          <thead>
+            <tr><th>Nombre</th><th>Categoría</th><th>Precio</th><th>Stock</th></tr>
+          </thead>
+          <tbody id="tabla-productos"></tbody>
+        </table>
+      </div>
+      <p id="mensaje-productos" class="mensaje" role="alert" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="/js/login.js"></script>
+</body>
+</html>
